@@ -1,0 +1,63 @@
+/* src/app/task-item/task-item.component.css */
+
+.task-container {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 8px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.task-container:hover {
+    background: #f0f0f0;
+}
+
+/* Estilo para tarea completada */
+.task-container.completed {
+    background: #e6f7ff; /* Fondo azul muy claro */
+    border-left: 5px solid #007bff; /* Barra de color a la izquierda */
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    margin-right: 15px;
+    min-width: 18px;
+    min-height: 18px;
+    cursor: pointer;
+}
+
+/* Descripción de la tarea */
+.task-description {
+    flex-grow: 1;
+    font-size: 1.1rem;
+    color: #444;
+    transition: text-decoration 0.3s, color 0.3s;
+}
+
+/* Estilo de texto para tarea completada */
+.task-container.completed .task-description {
+    text-decoration: line-through;
+    color: #999;
+}
+
+/* Botón de Eliminar */
+.delete-btn {
+    background: none;
+    border: none;
+    color: #ff4d4f; /* Rojo */
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 15px;
+    padding: 5px 8px;
+    line-height: 1;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #ff4d4f;
+    color: white;
+}

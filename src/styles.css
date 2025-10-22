@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7f6; /* Fondo gris muy claro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea al inicio, no en el centro vertical */
+    min-height: 100vh;
+    padding-top: 50px;
+}

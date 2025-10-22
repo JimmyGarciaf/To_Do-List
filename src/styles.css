@@ -9,5 +9,4 @@ body {
     justify-content: center;
     align-items: flex-start; /* Alinea al inicio, no en el centro vertical */
     min-height: 100vh;
-    padding-top: 50px;
 }

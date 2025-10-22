@@ -17,13 +17,13 @@ export class TasksListComponent implements OnInit {
   ngOnInit(): void {
     // Puedes cargar tareas iniciales aquí o desde localStorage
     this.tasks = [
-      { id: 1, description: 'Configurar el proyecto de Angular', completed: true },
+      { id: 1, description: 'Configurar el proyecto de Angular', completed: false },
       { id: 2, description: 'Añadir el componente de TaskItem', completed: false },
       { id: 3, description: 'Terminar mi To-Do List', completed: false },
     ];
   }
 
-  // 🔹 Métodos que manejan los eventos del hijo
+  // Métodos que manejan los eventos del hijo
   handleToggle(taskId: number) {
     const t = this.tasks.find(x => x.id === taskId);
     if (t) t.completed = !t.completed;

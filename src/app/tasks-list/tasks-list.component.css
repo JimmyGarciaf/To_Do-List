@@ -55,6 +55,14 @@ h1 {
     background-color: #4cae4c;
 }
 
+.task-list{
+    max-height: 350px;
+    overflow-y: scroll;
+    padding-right: 15px; 
+    margin-right: -15px;
+}
+    
+
 /* --- Mensaje de No Tareas --- */
 .no-tasks {
     text-align: center;

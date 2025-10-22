@@ -47,17 +47,16 @@ input[type="checkbox"] {
 .delete-btn {
     background: none;
     border: none;
-    color: #ff4d4f;
     font-size: 1.2rem;
     cursor: pointer;
     margin-left: 15px;
     padding: 5px 8px;
     line-height: 1;
     border-radius: 4px;
-    transition: background-color 0.2s, color 0.2s;
+    transition: transform 0.2s, fill 0.2s;
 }
 
-.delete-btn:hover {
-    background-color: #ff4d4f;
-    color: white;
+.delete-btn svg:hover {
+    transform: scale(1.1);
+    fill: red;
 }

@@ -23,6 +23,16 @@ export class TasksListComponent implements OnInit {
     ];
   }
 
+  // 🔹 Métodos que manejan los eventos del hijo
+  handleToggle(taskId: number) {
+    const t = this.tasks.find(x => x.id === taskId);
+    if (t) t.completed = !t.completed;
+  }
+
+  handleDelete(taskId: number) {
+    this.tasks = this.tasks.filter(x => x.id !== taskId);
+  }
+
   addTask() {
     if (this.newTaskDescription.trim()) {
       const newTask: Task = {

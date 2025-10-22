@@ -1,1 +1,25 @@
+<div class="todo-app">
+  <h1>Mi Lista de Tareas</h1>
 
+  <div class="add-task-form">
+    <input 
+      type="text" 
+      placeholder="Escribe una nueva tarea..."
+      [(ngModel)]="newTaskDescription"
+      (keydown.enter)="addTask()">
+    <button (click)="addTask()">Agregar</button>
+  </div>
+
+  <div class="task-list">
+    <app-task-item 
+      *ngFor="let task of tasks" 
+      [task]="task"
+      (toggle)="toggleTask($event)"
+      (delete)="deleteTask($event)">
+    </app-task-item>
+
+    <p *ngIf="tasks.length === 0" class="no-tasks">
+      ¡No hay tareas pendientes! 🎉
+    </p>
+  </div>
+</div>

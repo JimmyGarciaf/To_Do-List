@@ -4,6 +4,9 @@ export interface Task {
   id: number;
   description: string;
   completed: boolean;
+
+  createdBy: string; // Nombre del usuario que la creó
+  createdAt: number; // Marca de tiempo (timestamp) para guardar la hora exacta
 }
 
 @Component({

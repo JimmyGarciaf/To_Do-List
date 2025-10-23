@@ -13,47 +13,100 @@ import { TaskItemComponent, Task } from '../task-item/task-item.component';
 export class TasksListComponent implements OnInit {
   tasks: Task[] = [];
   newTaskDescription: string = '';
+  currentUserName: string = 'Usuario Anónimo';
 
   ngOnInit(): void {
-    // Puedes cargar tareas iniciales aquí o desde localStorage
-    this.tasks = [
-      { id: 1, description: 'Configurar el proyecto de Angular', completed: false },
-      { id: 2, description: 'Añadir el componente de TaskItem', completed: false },
-      { id: 3, description: 'Terminar mi To-Do List', completed: false },
-    ];
+    // 1. Cargar el nombre de usuario guardado
+    this.loadUserName();
+    
+    // 2. Cargar las tareas guardadas.
+    this.loadTasks();
+
+    // 3. Lógica para tareas iniciales: Solo si la lista está vacía
+    if (this.tasks.length === 0) {
+      // Estas tareas SÓLO se añaden la primera vez que la app se carga
+      // y el localStorage está vacío.
+      this.tasks = [
+        { 
+          id: Date.now() - 3, 
+          description: 'Configurar el proyecto de Angular', 
+          completed: false,
+          createdBy: this.currentUserName, // Asignar el usuario por defecto o cargado
+          createdAt: Date.now() - 300000 // Hora aproximada anterior
+        },
+        { 
+          id: Date.now() - 2, 
+          description: 'Añadir el componente de TaskItem', 
+          completed: false,
+          createdBy: this.currentUserName,
+          createdAt: Date.now() - 200000
+        },
+        { 
+          id: Date.now() - 1, 
+          description: 'Terminar mi To-Do List', 
+          completed: false,
+          createdBy: this.currentUserName,
+          createdAt: Date.now() - 100000
+        },
+      ];
+      this.saveTasks(); // Guardar estas tareas iniciales en localStorage
+    }
+  }
+  // Lógica para guardar las tareas en localStorage
+  saveTasks() {
+    localStorage.setItem('angularTodoListTasks', JSON.stringify(this.tasks));
   }
 
-  // Métodos que manejan los eventos del hijo
-  handleToggle(taskId: number) {
-    const t = this.tasks.find(x => x.id === taskId);
-    if (t) t.completed = !t.completed;
+  // Lógica para cargar las tareas desde localStorage
+  loadTasks() {
+    const savedTasks = localStorage.getItem('angularTodoListTasks');
+    if (savedTasks) {
+      this.tasks = JSON.parse(savedTasks);
+    }
+    // Si no hay tareas guardadas, usa las iniciales (las eliminamos si ya implementamos load/save)
+    // this.tasks = [ ... ] 
   }
 
-  handleDelete(taskId: number) {
-    this.tasks = this.tasks.filter(x => x.id !== taskId);
-  }
-
-  addTask() {
-    if (this.newTaskDescription.trim()) {
-      const newTask: Task = {
-        // Usa la fecha o un contador para un id único
-        id: Date.now(), 
-        description: this.newTaskDescription.trim(),
-        completed: false,
-      };
-      this.tasks.push(newTask);
-      this.newTaskDescription = ''; // Limpiar el input
+  // Lógica para guardar/cargar el nombre de usuario
+  loadUserName() {
+    const savedName = localStorage.getItem('todoUserName');
+    if (savedName) {
+      this.currentUserName = savedName;
     }
   }
 
+  saveUserName() {
+    localStorage.setItem('todoUserName', this.currentUserName);
+  }
+
+  // AGREGAR TAREA (Modificada)
+  addTask() {
+    if (this.newTaskDescription.trim() && this.currentUserName.trim()) {
+      const newTask: Task = {
+        id: Date.now(), 
+        description: this.newTaskDescription.trim(),
+        completed: false,
+        createdBy: this.currentUserName, // ASIGNAR USUARIO ACTUAL
+        createdAt: Date.now(),           // ASIGNAR TIMESTAMP ACTUAL
+      };
+      this.tasks.unshift(newTask); // Usamos unshift para que la nueva tarea vaya al inicio
+      this.newTaskDescription = ''; 
+      this.saveTasks(); // Guardar después de agregar
+    }
+  }
+
+  // TOGGLE y DELETE (Modificados para guardar)
   toggleTask(id: number) {
     const task = this.tasks.find(t => t.id === id);
     if (task) {
       task.completed = !task.completed;
+      this.saveTasks(); // Guardar después de modificar
     }
   }
 
   deleteTask(id: number) {
     this.tasks = this.tasks.filter(t => t.id !== id);
+    this.saveTasks(); // Guardar después de eliminar
   }
+
 }

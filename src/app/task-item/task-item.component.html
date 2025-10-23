@@ -3,13 +3,7 @@
          [checked]="task.completed" 
          (change)="onToggle()">
   
-  <div class="task-content">
-    <span class="task-description">{{ task.description }}</span>
-    <small class="task-meta">
-      Creada por **{{ task.createdBy }}** el 
-      {{ task.createdAt | date:'medium' }} 
-    </small>
-  </div>
+  <span class="task-description">{{ task.description }}</span>
   
   <button class="delete-btn" (click)="onDelete()">
     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f">

@@ -73,3 +73,33 @@ h1 {
     border-radius: 6px;
     margin-top: 20px;
 }
+
+/* Estilos para el campo de usuario */
+.user-info {
+    margin-bottom: 25px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+}
+
+.user-info label {
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.user-info input {
+    width: calc(100% - 20px);
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.user-info p {
+    margin: 5px 0 0 0;
+    color: #5cb85c;
+    font-size: 0.95rem;
+}

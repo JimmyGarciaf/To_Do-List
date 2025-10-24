@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 export interface Task {
@@ -12,7 +13,7 @@ export interface Task {
 @Component({
   selector: 'app-task-item',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './task-item.component.html',
   styleUrl: './task-item.component.css'
 })

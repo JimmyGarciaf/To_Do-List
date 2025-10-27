@@ -1,8 +1,11 @@
+html{
+    margin: 0;
+    padding: 0;
+}
 main{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }
 
 header{
@@ -11,11 +14,16 @@ header{
     background-color: blue;
     min-width: 100vw;
     color: white;
-    padding: 9px;
+}
+.owaBranding-container a{
+    color: white;
+    text-decoration: none;
 }
 
 .do-header{
     display: flex;
-    justify-content: space-around;
-
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+        padding: 10px;
 }

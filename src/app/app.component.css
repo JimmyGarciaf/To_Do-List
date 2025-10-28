@@ -19,48 +19,54 @@ header{
     display: flex;
     align-items: stretch;
     min-height: 48px;
-    padding-right: 7px;
+    padding-right: 5px;
 }
 .owaBranding-container{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto;
     align-items: center;
-    justify-content: center;
-    width: 50px;
     padding-bottom: 2px;
-}
-.owaBranding-container:hover{
-    background-color: #005A9E;
+    background-color: red;
 }
 .btn-app{
     background: none;
     border: none;
     cursor: pointer;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
+    width: 50px;
+    background-color: blue;
 }
 
 .btn-app svg{
     fill: white;
 }
 
-.ToDoSearchBox-center-wrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.owaBranding-container .btn-app:hover{
+    background-color: #005A9E;
 }
 
 .owaBranding-container a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: white;
     text-decoration: none;
     font-weight: 600;
-    padding-left: 8px;
-    padding-bottom: 2px;
+    min-width: 50px;
+    background-color: yellow;
 }
 
 .owaBranding-container a:hover{
     text-decoration: underline;
+}
+
+.ToDoSearchBox-center-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .ToDoSearchBox-container{

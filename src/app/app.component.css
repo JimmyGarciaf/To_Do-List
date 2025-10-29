@@ -22,21 +22,18 @@ header{
     padding-right: 5px;
 }
 .owaBranding-container{
-    display: grid;
-    grid-template-columns: auto auto;
-    align-items: center;
-    padding-bottom: 2px;
-    background-color: red;
+    display: flex;
 }
 .btn-app{
     background: none;
     border: none;
     cursor: pointer;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     justify-content: center;
     width: 50px;
-    background-color: blue;
+    padding-bottom: 2px;
+    padding-right: 10px;
 }
 
 .btn-app svg{
@@ -55,7 +52,8 @@ header{
     text-decoration: none;
     font-weight: 600;
     min-width: 50px;
-    background-color: yellow;
+    padding-bottom: 2px;
+    padding-left: 2px;
 }
 
 .owaBranding-container a:hover{

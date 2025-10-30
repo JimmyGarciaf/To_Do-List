@@ -70,7 +70,6 @@ header{
 }
 
 .ToDoSearchBox-container{
-    box-sizing: border-box;
     position: relative;
     flex-grow: 1;
     max-width: 365px;
@@ -80,30 +79,40 @@ header{
     position: absolute;
     top: 50%;
     transform: translateY(-50%); 
-    left: 3px;
+    left: 2px;
     background: none;
     border: none;
     cursor: pointer;
-    color: #6598f0;
-    font-size: 15px;
+    color: #6598f0; 
 }
-
+.ToDo-btn i{
+    display: inline-block;
+     font-size: 18px;
+     transform: rotate(90deg);
+}
 .box-look-for{
-    box-sizing: border-box;
-    width: 100%;
+    width: 94%;
     height: 30px;
-    border-radius: 5px;
+    border-radius: 4px;
     border: none;
-    padding-left: 33px;
-    padding-right: 30px;
+    padding-left: 35px;
+    padding-right: 22px;
     font-size: 14px;
-    background-color: #f5f5f5; 
+    background-color: #ffffff; 
+    cursor: pointer;
+    transform: box-shadow 0.2s ease-in-out;
 }
 
 .box-look-for:focus{
     outline: none;
-
+    /* Sombra sutil para accesibilidad*/
+    box-shadow: 0 0 0 2px rgba(101, 152, 240, 0.4); 
 }
+
+.box-look-for:hover{
+    background-color: #f5f5f5; 
+}
+
 .ToDo-user-container{
     display: flex;
 }

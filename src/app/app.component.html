@@ -13,9 +13,11 @@
         <div class="ToDoSearchBox-center-wrapper">
             <div class="ToDoSearchBox-container">
                 <button class="ToDo-btn" aria-label="Buscar">
-                    <i class="fa-solid fa-magnifying-glass fa-rotate-90"></i>
+                    <i class="ti ti-search"></i>
                 </button>
-                <input class="box-look-for" id="miInputBusqueda" type="text" placeholder="Buscar">
+                <input class="box-look-for" id="miInputBusqueda" type="text" [placeholder]="currentPlaceholder()"
+                    [value]="searchValue()" (focus)="handleFocus()" (blur)="handleBlur($event)"
+                    (input)="handleInput($event)">
             </div>
         </div>
         <div class="ToDo-user-container">

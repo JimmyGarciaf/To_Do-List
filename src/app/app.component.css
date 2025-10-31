@@ -87,9 +87,20 @@ header{
 }
 .ToDo-btn i{
     display: inline-block;
-     font-size: 18px;
-     transform: rotate(90deg);
+    font-size: 18px;
+    transform: rotate(90deg);
 }
+.ToDo-btn-delete{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); 
+    right: -3.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #6598f0;
+}
+
 .box-look-for{
     width: 100%;
     height: 30px;

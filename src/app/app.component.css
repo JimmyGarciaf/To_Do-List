@@ -116,7 +116,6 @@ header{
 
 .box-look-for:focus{
     outline: none;
-    /* Sombra sutil para accesibilidad*/
     box-shadow: 0 0 0 2px rgba(101, 152, 240, 0.4); 
 }
 

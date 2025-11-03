@@ -18,9 +18,11 @@
                 <input class="box-look-for" id="miInputBusqueda" type="text" [placeholder]="currentPlaceholder()"
                 [value]="searchValue()" (focus)="handleFocus()" (blur)="handleBlur($event)"
                 (input)="handleInput($event)">
-                <button class="ToDo-btn-delete">
-                    <i class="fa-solid fa-x fa-xs"></i>
-                </button>
+                @if (showClearButton()) {
+                    <button class="ToDo-btn-delete">
+                        <i class="fa-solid fa-x fa-xs"></i>
+                    </button>
+                }
             </div>
         </div>
         <div class="ToDo-user-container">

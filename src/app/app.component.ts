@@ -35,6 +35,11 @@ export class AppComponent {
     // Si hay valor, el navegador se encarga de ocultar el placeholder.
     return ''; 
   });
+ // --- Computed Signal para la visibilidad del botón Borrar (X)
+  showClearButton = computed(() => {
+    // La condición es: Foco activo Y hay texto escrito
+    return this.isFocused() && this.searchValue().length > 0;
+  });
 
   // --- Manejadores de Eventos
   
@@ -50,5 +55,11 @@ export class AppComponent {
       // Actualiza la señal de valor de búsqueda en cada tipeo
       const target = event.target as HTMLInputElement;
       this.searchValue.set(target.value);
+  }
+
+  // --- Nueva función para borrar el valor de búsqueda
+  clearSearch() {
+    this.searchValue.set('');
+    // Al borrar, el foco se mantiene en el input para que el usuario pueda seguir escribiendo
   }
 }

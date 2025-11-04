@@ -60,6 +60,13 @@ export class AppComponent {
   // --- Nueva función para borrar el valor de búsqueda
   clearSearch() {
     this.searchValue.set('');
-    // Al borrar, el foco se mantiene en el input para que el usuario pueda seguir escribiendo
+    const input = document.getElementById('miInputBusqueda') as HTMLInputElement;
+    if (input) {
+      input.value = ''; // fuerza la limpieza visual
+    }
+  }
+  // evita que el botón "X" dispare blur antes de borrar
+  preventBlur(event: MouseEvent) {
+    event.preventDefault();
   }
 }

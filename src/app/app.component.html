@@ -19,7 +19,7 @@
                 [value]="searchValue()" (focus)="handleFocus()" (blur)="handleBlur($event)"
                 (input)="handleInput($event)">
                 @if (showClearButton()) {
-                    <button class="ToDo-btn-delete" (click)="clearSearch()" aria-label="Borrar búsqueda">
+                    <button class="ToDo-btn-delete" type="button" (mousedown)="preventBlur($event)" (click)="clearSearch()" aria-label="Borrar búsqueda">
                         <i class="fa-solid fa-x fa-xs"></i>
                     </button>
                 }

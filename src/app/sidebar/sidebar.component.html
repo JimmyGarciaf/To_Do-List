@@ -1,1 +1,26 @@
-<p>sidebar works!</p>
+<nav class="sidebar-container">
+    <ul class="main-menu">
+        @for (item of menuItems(); track item.label) {
+            <li 
+                class="menu-item" 
+                [class.active]="item.active"
+                (click)="selectItem(item)"
+                tabindex="0"
+            >
+                <i class="{{ item.icon }}"></i>
+                <span class="label">{{ item.label }}</span>
+                @if (item.count !== null) {
+                    <span class="count">{{ item.count }}</span>
+                }
+            </li>
+        }
+    </ul>
+
+    <div class="separator"></div>
+
+    <button class="new-list-button" (click)="addNewList()">
+        <i class="ti ti-plus"></i>
+        <span>Nueva lista</span>
+        <i class="ti ti-notebook icon-trailing"></i>
+    </button>
+</nav>

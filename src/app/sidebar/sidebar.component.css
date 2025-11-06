@@ -75,15 +75,15 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    padding: 0 15px;
+    padding: 0;
     font-size: 14px;
     color: #0078d4;
     transition: background-color 0.2s;
 }
-
 .new-list{
     display: flex;
     align-items: center;
+    padding: 0 0 0 15px;
     width: 80%;
     min-height: 40px;
 }
@@ -92,19 +92,24 @@
     background-color: #f0f0f0;
 }
 
+.new-list i {
+    font-size: 18px;
+    margin-right: 15px;
+}
+
 .create-gruop{
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-grow: 1;
+    width: 20%;
     min-height: 40px;
 }
 .create-gruop:hover{
     background-color: #f0f0f0;
 }
 
-.new-list-button i {
-    font-size: 18px;
+.create-gruop i {
+    font-size: 20px;
     margin-right: 15px;
 }
 

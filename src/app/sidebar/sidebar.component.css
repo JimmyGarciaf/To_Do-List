@@ -49,6 +49,19 @@
     margin-left: 10px;
 }
 
+.menu-sidebar{
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 35px 20px 15px 15px;
+    font-size: 18px;
+    color: #0078d4;
+}
+
+.menu-sidebar i{
+    cursor: pointer;
+}
 /* Estilo para el elemento activo (resaltado) */
 .menu-item.active {
     background-color: #e5f1ff; /* Fondo más claro para activo */

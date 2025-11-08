@@ -135,3 +135,12 @@
     margin-left: 10px;
     opacity: 0.7;
 }
+.sidebar-footer{    
+    margin-top: auto;
+    padding: 15px;
+}
+.OfficeApp{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}

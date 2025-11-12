@@ -27,6 +27,7 @@ export class SidebarComponent {
     );
     console.log('Elemento seleccionado:', selectedItem.label);
   }
+  
 
   // Maneja la adición de una nueva lista (funcionalidad base)
   addNewList() {

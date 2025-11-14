@@ -1,12 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 /* styles.css */
+/* src/styles.css */
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f4f7f6; /* Fondo gris muy claro */
     margin: 0;
-    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y limpia */
+    background-color: #f3f2f1; /* Fondo muy claro, casi blanco */
+}
+
+.app-container {
     display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Alinea al inicio, no en el centro vertical */
-    min-height: 100vh;
+    min-height: calc(100vh - 50px); /* Ocupa la altura restante después del header */
+    width: 100%;
 }

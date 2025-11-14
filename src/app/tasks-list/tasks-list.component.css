@@ -1,7 +1,8 @@
 /* src/app/tasks-list/tasks-list.component.css */
 
 .todo-app {
-    width: calc(100vw - 300px) ; /* Limita el ancho del contenedor */
+    width: calc(100vw - 300px); /* Limita el ancho del contenedor */
+    max-width: 600px;
     background: white;
     padding: 0;
     border-radius: 12px;

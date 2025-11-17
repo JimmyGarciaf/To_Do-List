@@ -18,7 +18,6 @@ header{
     display: flex;
     align-items: stretch;
     min-height: 48px;
-    
 }
 .owaBranding-container{
     display: flex;
@@ -155,6 +154,7 @@ header{
 
 /* 2. El Contenido Principal (La vista de la lista de tareas) */
 .main-view {
+    height: calc(100vh - 88px);
     flex-grow: 1; /* Ocupa todo el espacio restante */
     padding: 20px 40px; /* Relleno interior para el contenido */
     background-color: #f3f2f1; /* Mismo fondo que el body */

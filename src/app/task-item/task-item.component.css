@@ -1,60 +1,123 @@
+/* --- Tarea Individual (Estilo Moderno Microsoft To Do) --- */
+
 .task-container {
     display: flex;
     align-items: center;
-    padding: 15px;
-    margin-bottom: 8px;
-    background: #fafafa;
-    border: 1px solid #eee;
-    border-radius: 6px;
-    transition: all 0.3s ease;
+    padding: 12px 15px;
+    margin-bottom: 1px; /* Para simular separación sutil */
+    background: #ffffff;
+    border: none; /* Quitamos el borde general */
+    border-bottom: 1px solid #edebe9; /* Línea de separación sutil */
+    border-radius: 0; /* Quitamos bordes redondeados */
+    box-shadow: none; /* Quitamos sombras */
+    cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 .task-container:hover {
-    background: #f0f0f0;
+    background: #f3f2f1; /* Fondo muy claro al pasar el ratón */
 }
 
 /* Estilo para tarea completada */
 .task-container.completed {
-    background: #e6f7ff; /* Fondo azul muy claro */
-    border-left: 5px solid #007bff; /* Barra de color a la izquierda */
+    background: #ffffff; /* Sigue siendo blanco */
+    /* La tarea completada solo se distingue por el texto tachado y el color del check */
+    border-left: none; 
 }
 
-/* Checkbox */
-input[type="checkbox"] {
+/* 1. Checkbox */
+.task-checkbox-wrapper {
     margin-right: 15px;
-    min-width: 18px;
-    min-height: 18px;
-    cursor: pointer;
+    /* Aseguramos que el wrapper no estorbe */
 }
 
-/* Descripción de la tarea */
-.task-description {
+input[type="checkbox"] {
+    /* Ocultamos el checkbox nativo y usamos la apariencia moderna */
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 50%; /* Checkbox circular */
+    border: 2px solid #a19f9d; /* Borde gris sutil */
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    transition: all 0.2s ease;
+    margin: 0; /* Eliminamos el margen nativo */
+}
+
+/* Estado: Checkbox NO completado al pasar el ratón */
+.task-container:not(.completed) input[type="checkbox"]:hover {
+    border-color: #2564cf; /* Borde azul al interactuar */
+}
+
+/* Estado: Checkbox completado */
+.task-container.completed input[type="checkbox"] {
+    border-color: #2564cf; /* Borde azul */
+    background-color: #2564cf; /* Fondo azul */
+}
+
+/* Icono de check (usando pseudo-elemento) */
+.task-container.completed input[type="checkbox"]::before {
+    content: '\2713'; /* Símbolo de checkmark (Unicode) */
+    display: block;
+    color: white;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+}
+
+/* 2. Contenido de la Tarea */
+.task-content {
     flex-grow: 1;
-    font-size: 1.1rem;
-    color: #444;
+    display: flex;
+    flex-direction: column; /* Apila descripción y meta */
+    justify-content: center;
+}
+
+.task-description {
+    font-size: 1rem;
+    color: #323130; /* Texto oscuro principal */
     transition: text-decoration 0.3s, color 0.3s;
+    line-height: 1.2;
+}
+
+.task-meta {
+    font-size: 0.75rem;
+    color: #605e5c; /* Texto gris sutil para la metadata */
+    margin-top: 2px;
 }
 
 /* Estilo de texto para tarea completada */
 .task-container.completed .task-description {
     text-decoration: line-through;
-    color: #999;
+    color: #a19f9d; /* Gris más claro al completar */
 }
 
-/* Botón de Eliminar */
+/* 3. Botón de Eliminar (Papelera) */
 .delete-btn {
+    /* Usamos FontAwesome, no el SVG voluminoso */
     background: none;
     border: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    color: #a19f9d; /* Gris sutil */
     cursor: pointer;
     margin-left: 15px;
-    padding: 5px 8px;
+    padding: 8px;
     line-height: 1;
     border-radius: 4px;
-    transition: transform 0.2s, fill 0.2s;
+    opacity: 0; /* Ocultar por defecto */
+    transition: opacity 0.2s, color 0.2s, background-color 0.2s;
 }
 
-.delete-btn svg:hover {
-    transform: scale(1.1);
-    fill: red;
+/* Mostrar el botón al pasar el ratón sobre la tarea */
+.task-container:hover .delete-btn {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    color: #d83a3a; /* Rojo suave al hacer hover */
+    background-color: #edebe9;
 }

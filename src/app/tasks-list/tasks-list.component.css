@@ -1,106 +1,97 @@
 /* src/app/tasks-list/tasks-list.component.css */
 
+/* 1. Contenedor Principal (todo-app) */
 .todo-app {
-    width: calc(100vw - 300px); /* Limita el ancho del contenedor */
-    max-width: 600px;
-    background: white;
+    /* **ELIMINAMOS** los valores de width, max-width, margin y el fondo rojo del diseño anterior */
+    width: 100%; 
+    max-width: 800px; /* Aseguramos que la lista no se extienda demasiado */
+    background: transparent; /* El fondo principal ya lo da el .main-view */
     padding: 0;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    background-color: red;
+    border-radius: 0;
+    box-shadow: none;
+    margin: 0; 
 }
 
-h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 25px;
-    font-size: 1.8rem;
-    border-bottom: 2px solid #5cb85c; /* Línea decorativa */
-    padding-bottom: 10px;
+/* 2. Formulario de Agregar Tarea (Nuevo Estilo) */
+.add-task-container {
+    background-color: #ffffff; /* Fondo blanco para el recuadro de agregar */
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra muy sutil */
+    margin-bottom: 20px;
+    padding: 8px 15px; /* Relleno interior */
 }
-
-/* --- Formulario de Agregar Tarea --- */
 
 .add-task-form {
     display: flex;
-    margin-bottom: 25px;
+    align-items: center;
+    border-bottom: 1px solid #e1dfdd; /* Separador sutil con los metadatos */
+    padding-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .add-task-form input[type="text"] {
     flex-grow: 1;
-    padding: 12px;
-    border: 2px solid #ccc;
-    border-right: none;
-    border-radius: 6px 0 0 6px;
+    padding: 10px 10px;
+    border: none;
     font-size: 1rem;
     outline: none;
-    transition: border-color 0.3s;
+    /* El placeholder se ve más claro en la referencia */
+    color: #323130;
 }
 
-.add-task-form input[type="text"]:focus {
-    border-color: #5cb85c;
+.add-task-form input[type="text"]::placeholder {
+    color: #605e5c;
 }
 
-.add-task-form button {
-    padding: 12px 20px;
-    background-color: #5cb85c; /* Verde principal */
-    color: white;
+.add-icon-btn {
+    background: none;
     border: none;
-    border-radius: 0 6px 6px 0;
+    color: #2564cf; /* Color de acento azul */
+    font-size: 1.1rem;
     cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s;
+    margin-right: 10px;
+    padding: 5px;
 }
 
-.add-task-form button:hover {
-    background-color: #4cae4c;
+.btn-agregar-inline {
+    background-color: transparent;
+    border: none;
+    color: #2564cf;
+    font-weight: 600;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
 }
 
-.task-list{
-    max-height: 350px;
-    overflow-y: scroll;
-    padding-right: 15px; 
-    margin-right: -15px;
+.btn-agregar-inline:hover {
+    background-color: #f3f2f1;
 }
-    
+
+/* 3. Lista de Tareas */
+.task-list {
+    /* Mantenemos el scroll si la lista es muy larga */
+    max-height: 50vh; 
+    overflow-y: auto; 
+    padding-right: 10px; 
+    margin-right: -10px; /* Compensa el padding-right del scroll */
+}
+
+/* 4. Título/Usuario (Eliminado del HTML, pero si lo mantienes, usa estos estilos) */
+.user-info, h1 {
+    display: none; /* Ocultamos estos elementos para ajustarnos a la nueva idea */
+}
+
+/* 5. Tareas Individuales (Necesitas ajustar el CSS de app-task-item) */
+/* La clase .task-list solo contendrá instancias de <app-task-item> */
 
 /* --- Mensaje de No Tareas --- */
 .no-tasks {
     text-align: center;
-    color: #999;
+    color: #605e5c;
     padding: 20px;
     font-style: italic;
-    border: 1px dashed #ccc;
-    border-radius: 6px;
+    border: none;
     margin-top: 20px;
-}
-
-/* Estilos para el campo de usuario */
-.user-info {
-    margin-bottom: 25px;
-    padding: 0;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #f9f9f9;
-}
-
-.user-info label {
-    font-weight: bold;
-    color: #555;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.user-info input {
-    width: calc(100% - 20px);
-    padding: 8px 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.user-info p {
-    margin: 5px 0 0 0;
-    color: #5cb85c;
-    font-size: 0.95rem;
+    background-color: transparent;
 }

@@ -1,43 +1,57 @@
-<div class="tasksToolbar-titleContainer">
-    <div class="tasksToolbar-titleItem">
-        <h2 class="listTitle"> Mi día</h2>
-    </div>
-    <div class="tasksToolbar-titleItem">
-        <div class="buttonContainer">
-            <button class="btnloading">
-                <span>Cuadrícula</span>
-            </button>
+<div class="tasksToolbar-top">
+    <div class="tasksToolbar-headline">
+        <div class="tasksToolbar-titleContainer">
+            <div class="tasksToolbar-titleItem">
+                <h2 class="listTitle"> Mi día</h2>
+            </div>
+            <div class="tasksToolbar-titleItem">
+                <div class="buttonContainer">
+                    <button class="btnloading">
+                        <span>Cuadrícula</span>
+                    </button>
+                </div>
+                <div class="buttonCantainer">
+                    <button class="btnloading">
+                        <span>Lista</span>
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="buttonCantainer">
-            <button class="btnloading">
-                <span>Lista</span>
-            </button>
+    </div>
+    <div class="taskToolbar-right">
+        <div class="tasksToolbar-meta">
+            <div class="tasksToolbar-actionsItem">
+                <button class="btnloading">
+                    <span>Ordenar</span>
+                </button>
+            </div>
+            <div class="tasksToolbar-actionsItem">
+                <button class="btnloading">
+                    <span>Sugerencias</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>
 
+
 <div class="todo-app">
-  <div class="add-task-container">
-    <div class="add-task-form">
-        <button class="add-icon-btn" (click)="addTask()" aria-label="Agregar Tarea">
-             <i class="fa-solid fa-plus"></i>
-        </button>
-        <input 
-            type="text" 
-            placeholder="Agregar una tarea"
-            [(ngModel)]="newTaskDescription"
-            (keydown.enter)="addTask()">
-        
-        <button *ngIf="newTaskDescription.length > 0" class="btn-agregar-inline" (click)="addTask()">Agregar</button>
-    </div> 
-    <div class="task-metadata-controls"></div>
-  </div>
-    
-  <div class="task-list">
-        <app-task-item 
-            *ngFor="let task of tasks" 
-            [task]="task"
-            (toggle)="toggleTask($event)"
+    <div class="add-task-container">
+        <div class="add-task-form">
+            <button class="add-icon-btn" (click)="addTask()" aria-label="Agregar Tarea">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <input type="text" placeholder="Agregar una tarea" [(ngModel)]="newTaskDescription"
+                (keydown.enter)="addTask()">
+
+            <button *ngIf="newTaskDescription.length > 0" class="btn-agregar-inline"
+                (click)="addTask()">Agregar</button>
+        </div>
+        <div class="task-metadata-controls"></div>
+    </div>
+
+    <div class="task-list">
+        <app-task-item *ngFor="let task of tasks" [task]="task" (toggle)="toggleTask($event)"
             (delete)="deleteTask($event)">
         </app-task-item>
 

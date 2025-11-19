@@ -86,3 +86,40 @@
     margin-top: 20px;
     background-color: transparent;
 }
+
+/*-- TaskToolbar-top----*/
+
+.tasksToolbar-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tasksToolbar-headline{
+
+    
+}
+.tasksToolbar-titleContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.tasksToolbar-titleItem{
+    display: flex;
+}
+.listTitle{
+    color: #323130;
+    
+}
+.tasksToolbar-meta{
+    display: flex;
+}
+.btnloading{
+    background-color: transparent;
+    border: none;
+    color: #797775;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}

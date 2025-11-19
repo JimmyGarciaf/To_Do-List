@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna y limpia */
+    font-family: "Segoe", "Segoe UI", "Arial", "sans-serif"; /* Fuente moderna y limpia */
     background-color: #f3f2f1; /* Fondo muy claro, casi blanco */
 }
 

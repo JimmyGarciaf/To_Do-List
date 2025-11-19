@@ -95,14 +95,13 @@
     align-items: center;
 }
 .tasksToolbar-headline{
-
-    
+    flex-grow: 1;
+    display: flex;
 }
 .tasksToolbar-titleContainer{
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 .tasksToolbar-titleItem{
     display: flex;

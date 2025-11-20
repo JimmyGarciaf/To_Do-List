@@ -14,6 +14,7 @@ export class TasksListComponent implements OnInit {
   tasks: Task[] = [];
   newTaskDescription: string = '';
   currentUserName: string = 'Usuario Anónimo';
+  todayDateFormatted: string = '';
 
   ngOnInit(): void {
     // 1. Cargar el nombre de usuario guardado
@@ -79,6 +80,25 @@ export class TasksListComponent implements OnInit {
     localStorage.setItem('todoUserName', this.currentUserName);
   }
 
+  setTodayDate(): void {
+    const today = new Date();
+
+    const options: Intl.DateTimeFormatOptions = {
+      weekday: 'long',  // Nombre completo del día (Ej: Jueves)
+      day: 'numeric',   // Número del día (Ej: 20)
+      month: 'long'     // Nombre completo del mes (Ej: Noviembre)
+    };
+    // Crear el string de la fecha usando el formato local (Intl)
+    // toLocaleDateString('es-ES', options) genera "jueves, 20 de noviembre"
+    let dateString = today.toLocaleDateString('es-ES', options);
+
+    // Ajuste para capitalizar la primera letra (opcional, pero se ve mejor)
+    dateString = dateString.charAt(0).toUpperCase() + dateString.slice(1);
+    
+    // Reemplazamos "de" por una coma y un espacio, para el formato "Día, Número Mes"
+    // 'jueves, 20 de noviembre' -> 'Jueves, 20 Noviembre' (Ajuste estilístico)
+    this.todayDateFormatted = dateString.replace(' de ', ' ');
+  }
   // AGREGAR TAREA (Modificada)
   addTask() {
     if (this.newTaskDescription.trim() && this.currentUserName.trim()) {
@@ -108,5 +128,4 @@ export class TasksListComponent implements OnInit {
     this.tasks = this.tasks.filter(t => t.id !== id);
     this.saveTasks(); // Guardar después de eliminar
   }
-
 }

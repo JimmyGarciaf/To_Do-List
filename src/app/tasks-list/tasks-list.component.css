@@ -93,21 +93,38 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 20px;
 }
 .tasksToolbar-headline{
-    flex-grow: 1;
     display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+.tasksToolbar-leftContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .tasksToolbar-titleContainer{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap:0;
 }
 .tasksToolbar-titleItem{
     display: flex;
     align-items: center;
     gap: 5px;
+}
+.tasksToolbar-subline{
+    font-size: 0.8rem;
+    color: #616161;
+    padding-left: 5px;
+    margin-top: 2px;
+}
+.tasksToolbar-views {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
 }
 .buttonContainer{
     padding: 5px;
@@ -117,7 +134,7 @@
 }
 
 .listTitle{
-    color: #323130;
+    color: #535251;
 }
 .tasksToolbar-meta{
     display: flex;

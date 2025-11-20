@@ -23,7 +23,10 @@ export class TasksListComponent implements OnInit {
     // 2. Cargar las tareas guardadas.
     this.loadTasks();
 
-    // 3. Lógica para tareas iniciales: Solo si la lista está vacía
+    // 3. AÑADIR LÓGICA DE FECHA
+    this.setTodayDate();
+
+    // 4. Lógica para tareas iniciales: Solo si la lista está vacía
     if (this.tasks.length === 0) {
       // Estas tareas SÓLO se añaden la primera vez que la app se carga
       // y el localStorage está vacío.

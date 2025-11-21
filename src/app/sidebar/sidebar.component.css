@@ -74,13 +74,6 @@
 .menu-item.active i {
     color: #0078d4;
 }
-
-.separator {
-    height: 1px;
-    background-color: #eee;
-    margin: 10px 15px;
-}
-
 /* Estilo para el botón de nueva lista */
 .new-list-button {
     background: none;

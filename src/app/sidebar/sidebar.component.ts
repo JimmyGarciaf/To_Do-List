@@ -14,7 +14,6 @@ export class SidebarComponent {
     { icon: 'ti ti-star', label: 'Importante', count: null, active: false, isList: false },
     { icon: 'ti ti-calendar-event', label: 'Planeado', count: null, active: false, isList: false },
     { icon: 'ti ti-user-check', label: 'Asignado a mí', count: null, active: false, isList: false },
-    { icon: 'ti ti-flag', label: 'Correo electrónico marcado', count: null, active: false, isList: false },
     { icon: 'ti ti-home', label: 'Tareas', count: null, active: false, isList: false }
   ]);
   // Maneja la selección de un elemento del menú

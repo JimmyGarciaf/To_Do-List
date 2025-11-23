@@ -35,21 +35,18 @@ export class TasksListComponent implements OnInit {
           id: Date.now() - 3, 
           description: 'Configurar el proyecto de Angular', 
           completed: false,
-          createdBy: this.currentUserName, // Asignar el usuario por defecto o cargado
           createdAt: Date.now() - 300000 // Hora aproximada anterior
         },
         { 
           id: Date.now() - 2, 
           description: 'Añadir el componente de TaskItem', 
           completed: false,
-          createdBy: this.currentUserName,
           createdAt: Date.now() - 200000
         },
         { 
           id: Date.now() - 1, 
           description: 'Terminar mi To-Do List', 
           completed: false,
-          createdBy: this.currentUserName,
           createdAt: Date.now() - 100000
         },
       ];
@@ -109,7 +106,6 @@ export class TasksListComponent implements OnInit {
         id: Date.now(), 
         description: this.newTaskDescription.trim(),
         completed: false,
-        createdBy: this.currentUserName, // ASIGNAR USUARIO ACTUAL
         createdAt: Date.now(),           // ASIGNAR TIMESTAMP ACTUAL
       };
       this.tasks.unshift(newTask); // Usamos unshift para que la nueva tarea vaya al inicio

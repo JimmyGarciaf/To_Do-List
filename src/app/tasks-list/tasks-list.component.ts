@@ -13,13 +13,10 @@ import { TaskItemComponent, Task } from '../task-item/task-item.component';
 export class TasksListComponent implements OnInit {
   tasks: Task[] = [];
   newTaskDescription: string = '';
-  currentUserName: string = 'Usuario Anónimo';
   todayDateFormatted: string = '';
 
   ngOnInit(): void {
-    // 1. Cargar el nombre de usuario guardado
-    this.loadUserName();
-    
+   
     // 2. Cargar las tareas guardadas.
     this.loadTasks();
 
@@ -35,19 +32,22 @@ export class TasksListComponent implements OnInit {
           id: Date.now() - 3, 
           description: 'Configurar el proyecto de Angular', 
           completed: false,
-          createdAt: Date.now() - 300000 // Hora aproximada anterior
+          createdAt: Date.now() - 300000, // Hora aproximada anterior
+          createdDate: new Date(Date.now() - 300000)
         },
         { 
           id: Date.now() - 2, 
           description: 'Añadir el componente de TaskItem', 
           completed: false,
-          createdAt: Date.now() - 200000
+          createdAt: Date.now() - 200000,
+          createdDate: new Date(Date.now() - 200000)
         },
         { 
           id: Date.now() - 1, 
           description: 'Terminar mi To-Do List', 
           completed: false,
-          createdAt: Date.now() - 100000
+          createdAt: Date.now() - 100000,
+          createdDate: new Date(Date.now() - 100000)
         },
       ];
       this.saveTasks(); // Guardar estas tareas iniciales en localStorage
@@ -67,19 +67,6 @@ export class TasksListComponent implements OnInit {
     // Si no hay tareas guardadas, usa las iniciales (las eliminamos si ya implementamos load/save)
     // this.tasks = [ ... ] 
   }
-
-  // Lógica para guardar/cargar el nombre de usuario
-  loadUserName() {
-    const savedName = localStorage.getItem('todoUserName');
-    if (savedName) {
-      this.currentUserName = savedName;
-    }
-  }
-
-  saveUserName() {
-    localStorage.setItem('todoUserName', this.currentUserName);
-  }
-
   setTodayDate(): void {
     const today = new Date();
 
@@ -101,7 +88,7 @@ export class TasksListComponent implements OnInit {
   }
   // AGREGAR TAREA (Modificada)
   addTask() {
-    if (this.newTaskDescription.trim() && this.currentUserName.trim()) {
+    if (this.newTaskDescription.trim()) {
       const newTask: Task = {
         id: Date.now(), 
         description: this.newTaskDescription.trim(),

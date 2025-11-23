@@ -6,6 +6,7 @@ export interface Task {
   description: string;
   completed: boolean;
   createdAt: number; // Marca de tiempo (timestamp) para guardar la hora exacta
+  createdDate?: Date; // Fecha creada a partir del timestamp
 }
 
 @Component({

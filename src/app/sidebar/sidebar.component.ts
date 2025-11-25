@@ -1,4 +1,5 @@
 import { Component, signal } from '@angular/core';
+import { UiStateService } from '../services/list-state.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,6 +9,9 @@ import { Component, signal } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
+
+  constructor(private uiState: UiStateService) {}
+  
   // Lista estática de elementos del menú (simulando rutas/vistas)
   menuItems = signal([
     { icon: 'ti ti-sun', label: 'Mi día', count: null, active: true, isList: false },
@@ -24,7 +28,8 @@ export class SidebarComponent {
         active: item === selectedItem
       }))
     );
-    console.log('Elemento seleccionado:', selectedItem.label);
+    // Actualizar la lista seleccionada GLOBAL
+    this.uiState.setSelectedList(selectedItem.label);
   }
   
 

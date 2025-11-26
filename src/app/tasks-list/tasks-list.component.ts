@@ -2,7 +2,7 @@ import { Component, computed, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // Necesario para el input de la nueva tarea
 import { CommonModule } from '@angular/common'; // Necesario para *ngFor
 import { TaskItemComponent, Task } from '../task-item/task-item.component';
-import { UiStateService } from '../services/list-state.service';
+import { ListStateService } from '../services/list-state.service';
 
 @Component({
   selector: 'app-tasks-list',
@@ -13,10 +13,10 @@ import { UiStateService } from '../services/list-state.service';
 })
 export class TasksListComponent implements OnInit {
 
-  constructor(private uiState: UiStateService) {}
+  constructor(private uiState: ListStateService) {}
 
   // ESTE es el nombre dinámico de la sección
-  listTitle = computed(() => this.uiState.selectedList());
+  listInfo = computed(() => this.uiState.selectedList());
 
   tasks: Task[] = [];
   newTaskDescription: string = '';

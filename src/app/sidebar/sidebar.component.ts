@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { UiStateService } from '../services/list-state.service';
+import { ListStateService } from '../services/list-state.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -10,7 +10,7 @@ import { UiStateService } from '../services/list-state.service';
 })
 export class SidebarComponent {
 
-  constructor(private uiState: UiStateService) {}
+  constructor(private uiState: ListStateService) {}
   
   // Lista estática de elementos del menú (simulando rutas/vistas)
   menuItems = signal([
@@ -28,8 +28,11 @@ export class SidebarComponent {
         active: item === selectedItem
       }))
     );
-    // Actualizar la lista seleccionada GLOBAL
-    this.uiState.setSelectedList(selectedItem.label);
+    // actualizar el estado global
+    this.uiState.setSelectedList({
+      label: selectedItem.label,
+      icon: selectedItem.icon
+    });
   }
   
 

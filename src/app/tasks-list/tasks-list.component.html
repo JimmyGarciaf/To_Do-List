@@ -3,7 +3,7 @@
         <div class="tasksToolbar-leftContent">
             <div class="tasksToolbar-titleContainer">
                 <div class="tasksToolbar-titleItem">
-                    <h3 class="listTitle">
+                    <h3 class="listTitle" [style.color]="listInfo().color">
                         <i [class]="listInfo().icon"></i>
                         {{ listInfo().label }}
                     </h3>

@@ -14,7 +14,7 @@ export class SidebarComponent {
   
   // Lista estática de elementos del menú (simulando rutas/vistas)
   menuItems = signal([
-    { icon: 'ti ti-sun', label: 'Mi día', count: null, active: true, isList: false },
+    { icon: 'ti ti-sun', label: 'Mi día', color: '#0078d4', count: null, active: true, isList: false },
     { icon: 'ti ti-star', label: 'Importante', color: '#EB5757', count: null, active: false, isList: false },
     { icon: 'ti ti-calendar-event', label: 'Planeado', color: '#6FCF97', count: null, active: false, isList: false },
     { icon: 'ti ti-user-check', label: 'Asignado a mí', color: '#BB6BD9', count: null, active: false, isList: false },
@@ -31,7 +31,8 @@ export class SidebarComponent {
     // actualizar el estado global
     this.uiState.setSelectedList({
       label: selectedItem.label,
-      icon: selectedItem.icon
+      icon: selectedItem.icon,
+      color: selectedItem.color
     });
   }
   

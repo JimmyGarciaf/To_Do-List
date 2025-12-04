@@ -8,9 +8,9 @@
                         {{ listInfo().label }}
                     </h3>
                 </div>
-                <div class="tasksToolbar-subline">
+                <div class="tasksToolbar-subline" *ngIf="listInfo().label === 'Mi día'">
                     <span class="todayDateHint">
-                        <span class="date">{{todayDateFormatted}}</span>
+                        <span class="date" [style.color]="listInfo().color">{{todayDateFormatted}}</span>
                     </span>
                 </div>
             </div>

@@ -3,16 +3,14 @@
         <div class="tasksToolbar-leftContent">
             <div class="tasksToolbar-titleContainer">
                 <div class="tasksToolbar-titleItem">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#1f1f1f">
-                        <path
-                            d="M460-743.08v-135.38h40v135.38h-40Zm219.85 91.54-27.31-27.31 94.31-98.07 29.07 29.3-96.07 96.08ZM743.08-460v-40h135.38v40H743.08ZM460-81.54v-134.61h40v134.61h-40ZM281.69-652.77l-98.61-94.08 30.07-28.3 96.08 95.3-27.54 27.08Zm464.93 469.69-94.08-98.07 27.08-26.31 95.53 93.84-28.53 30.54ZM81.54-460v-40h135.38v40H81.54Zm130.84 276.92-27.53-30.07 94.3-94.31 14.39 13.92 15.15 14.16-96.31 96.3ZM480.18-280q-83.26 0-141.72-58.28Q280-396.56 280-479.82q0-83.26 58.28-141.72Q396.56-680 479.82-680q83.26 0 141.72 58.28Q680-563.44 680-480.18q0 83.26-58.28 141.72Q563.44-280 480.18-280Zm-.18-40q66 0 113-47t47-113q0-66-47-113t-113-47q-66 0-113 47t-47 113q0 66 47 113t113 47Zm0-160Z" />
-                    </svg>
-                    <h3 class="listTitle"> Mi día</h3>
+                    <h3 class="listTitle" [style.color]="listInfo().color">
+                        <i [class]="listInfo().icon"></i>
+                        {{ listInfo().label }}
+                    </h3>
                 </div>
-                <div class="tasksToolbar-subline">
+                <div class="tasksToolbar-subline" *ngIf="listInfo().label === 'Mi día'">
                     <span class="todayDateHint">
-                        <span class="date">{{todayDateFormatted}}</span>
+                        <span class="date" [style.color]="listInfo().color">{{todayDateFormatted}}</span>
                     </span>
                 </div>
             </div>
@@ -21,21 +19,21 @@
             <div class="buttonContainer">
                 <button class="btnloading">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#616161">
+                        [attr.fill]="listInfo().color">
                         <path
                             d="M140-520v-300h300v300H140Zm0 380v-300h300v300H140Zm380-380v-300h300v300H520Zm0 380v-300h300v300H520Z" />
                     </svg>
-                    <span>Cuadrícula</span>
+                    <span [style.color]="listInfo().color">Cuadrícula</span>
                 </button>
             </div>
             <div class="buttonContainer">
                 <button class="btnloading">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#1f1f1f">
+                        [attr.fill]="listInfo().color">
                         <path
                             d="M160-240v-40h640v40H160Zm0-146.92v-40h640v40H160Zm0-146.16v-40h640v40H160ZM160-680v-40h640v40H160Z" />
                     </svg>
-                    <span>Lista</span>
+                    <span [style.color]="listInfo().color">Lista</span>
                 </button>
             </div>
         </div>
@@ -45,21 +43,21 @@
             <div class="tasksToolbar-actionsItem">
                 <button class="btnloading">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#1f1f1f">
+                        [attr.fill]="listInfo().color">
                         <path
                             d="M352.31-467.69v-295.46L228.54-639.38 200-667.69 372.31-840l172.31 172.31-28.54 28.31-123.77-123.77v295.46h-40ZM586.92-120l-172.3-172.31 28.53-28.31 123.77 123.77v-295.46h40v295.46l123.77-123.77 28.54 28.31L586.92-120Z" />
                     </svg>
-                    <span>Ordenar</span>
+                    <span [style.color]="listInfo().color">Ordenar</span>
                 </button>
             </div>
             <div class="tasksToolbar-actionsItem">
                 <button class="btnloading">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px"
-                        fill="#1f1f1f">
+                        [attr.fill]="listInfo().color">
                         <path
                             d="M480-113.85q-27.62 0-48.04-18.5-20.42-18.5-24.27-46.11h144.62q-3.85 27.61-24.27 46.11-20.42 18.5-48.04 18.5ZM340-249.23v-40h280v40H340ZM342.31-360q-56.69-37.15-89.5-94.23Q220-511.31 220-580q0-108.85 75.58-184.42Q371.15-840 480-840t184.42 75.58Q740-688.85 740-580q0 68.69-32.81 125.77T617.69-360H342.31ZM354-400h252q45-32 69.5-79T700-580q0-92-64-156t-156-64q-92 0-156 64t-64 156q0 54 24.5 101t69.5 79Zm126 0Z" />
                     </svg>
-                    <span>Sugerencias</span>
+                    <span [style.color]="listInfo().color">Sugerencias</span>
                 </button>
             </div>
         </div>

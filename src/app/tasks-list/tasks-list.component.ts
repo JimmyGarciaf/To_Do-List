@@ -17,10 +17,10 @@ export class TasksListComponent implements OnInit {
 
   ngOnInit(): void {
    
-    // 2. Cargar las tareas guardadas.
+    // 2. Cargar las tareas guardadas
     this.loadTasks();
 
-    // 3. AÑADIR LÓGICA DE FECHA
+    // 3. Lógica de Fecha
     this.setTodayDate();
 
     // 4. Lógica para tareas iniciales: Solo si la lista está vacía
